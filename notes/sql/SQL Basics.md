@@ -1,7 +1,7 @@
 ---
 title: SQL Basics
 created: '2021-01-12T17:20:13.491Z'
-modified: '2021-01-13T20:47:30.170Z'
+modified: '2021-01-19T18:47:25.486Z'
 ---
 
 # SQL Basics
@@ -69,9 +69,7 @@ If we want to sort our results post-aggregation, we cannot use the `WHERE` claus
 SELECT COUNT(CustomerID) as num_customers, Country
 FROM Customers
 GROUP BY Country
-HAVING num_customers > 5 -- WRONG!! This can be written using WHERE (due to no agg).
--- CORRECT STATEMENT WILL BE
-HAVING COUNT(CustomerID) > 5
+HAVING num_customers > 5 -- using WHERE here will fail
 ```
 
 ## SQL Joins
