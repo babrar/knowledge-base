@@ -1,10 +1,3 @@
----
-tags: [Notebooks/Golang/Tour Notes]
-title: Channels
-created: '2021-01-10T02:05:22.342Z'
-modified: '2021-01-12T06:38:24.991Z'
----
-
 # Channels
 Acts a means of communication between multiple goroutines (or threads).
 ## Unbuffered
@@ -23,7 +16,7 @@ go func() {
     }
 }()
 ```
-This has the subtle implication that sending and receiving over an unbuffered channle has to take place on separate threads (goroutines). Full discussion [here](https://stackoverflow.com/questions/47525250/in-the-go-select-construct-can-i-have-send-and-receive-to-unbuffered-channel-in).
+This has the subtle implication that sending and receiving over an unbuffered channel has to take place on separate threads (goroutines). Full discussion [here](https://stackoverflow.com/questions/47525250/in-the-go-select-construct-can-i-have-send-and-receive-to-unbuffered-channel-in).
 
 Note: if sender s1 and s2 write to the channel, and only s1's value was received then, s2 will still be blocked.  
 
@@ -32,12 +25,12 @@ For buffered channels, the sender only blocks until the value is copied to the b
 
 
 ### Closing a channel
-Channles normally don't require closing. The only scenario in which it is necessary to close a channel is when the receiver must be told that there are no more values incoming. Only the sender may close the channel.
+Channels normally don't require closing. The only scenario in which it is necessary to close a channel is when the receiver must be told that there are no more values incoming. Only the sender may close the channel.
 
 If a channel is closed, then `ok` in the following code will evaluate to `false`, else it will be `true` if channel is open.
 ```go
 v, ok := <-ch
-``` 
+```
 Here, `ok` is an additional param that can be passed while receiving a value out of a channel.
 
 ## Solution to Exercise: Equivalent Binary Trees

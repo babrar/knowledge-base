@@ -1,10 +1,3 @@
----
-tags: [ELT, Snowflake]
-title: Snowflake Tutorial Notes
-created: '2021-01-06T16:46:47.801Z'
-modified: '2021-01-11T18:22:40.069Z'
----
-
 # Snowflake Tutorial Notes
 
 
@@ -77,7 +70,7 @@ FILES = ('WEIGHT.txt')
 FILE_FORMAT = (FORMAT_NAME = USDA_FILE_FORMAT);
 ```
 - S3 (csv-like) data can be queried without loading into table first. The column names have to be $1, $2 and so on..
-This allows a nice way to skip loading raw data by **transforming** the data enroute. I.E.
+This allows a nice way to skip loading raw data by **transforming** the data en route. I.E.
 ```sql
 -- PREVIEW from S3 directly
 select REPLACE($1, '~'), REPLACE($2, '~')
@@ -97,10 +90,10 @@ FROM (
 
 This type of data is labelled as `VARIANT` datatype in Snowflake. Common data semi-structured data formats are JSON, XML, Parquet. 
 
-Supported semi-structured data formates (see [here](https://docs.snowflake.com/en/user-guide/semistructured-intro.html)) can be loaded into Snowflake. Each outermost entry will be placed in a new row in the database (given that we strip the outermost container using the `STRIP_OUTER_ELEMENT` property).
+Supported semi-structured data formats (see [here](https://docs.snowflake.com/en/user-guide/semistructured-intro.html)) can be loaded into Snowflake. Each outermost entry will be placed in a new row in the database (given that we strip the outermost container using the `STRIP_OUTER_ELEMENT` property).
 
 ### XML
-Lesson 10 covers extensively on how to extact values out of nested fields and tags. This way, we can make semi-structured query-able. Some common symbols for the use case are "$" - Field value and "@" - Attribute value. Example:
+Lesson 10 covers extensively on how to extract values out of nested fields and tags. This way, we can make semi-structured query-able. Some common symbols for the use case are "$" - Field value and "@" - Attribute value. Example:
 ```sql
 SELECT
 raw_author:"@AUTHOR_UID" as AUTHOR_ID
@@ -130,7 +123,7 @@ For almost all nested operation, the `FLATTEN` command provided by Snowflake is 
 - LATERAL FLATTEN
 - TABLE FLATTEN
 
-Flattening works by taking a param to the `FLATTEN` function and for each occurenence of that param in a nested data structure, it places that occurence in a new row. i.e. this analogous to sifiting through multiple twitter tweets (each in its own row) and finding the hashtags for each tweet (one tweet can have multiple hashtags). The hashtags would then be placed into separate rows of their own upon flattening.
+Flattening works by taking a param to the `FLATTEN` function and for each occurrence of that param in a nested data structure, it places that occurrence in a new row. i.e. this analogous to sifting through multiple twitter tweets (each in its own row) and finding the hashtags for each tweet (one tweet can have multiple hashtags). The hashtags would then be placed into separate rows of their own upon flattening.
 
 The LATERAL modifier joins the provided table with the flattened data . That way, we can SELECT columns that are not directly present in the flatten operation. 
 

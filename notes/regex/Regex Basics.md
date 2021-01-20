@@ -1,9 +1,3 @@
----
-title: Regex Basics
-created: '2021-01-19T22:22:09.395Z'
-modified: '2021-01-19T23:14:25.582Z'
----
-
 # Regex Basics
 
 The format for using regex is as the following:
@@ -32,9 +26,10 @@ ZWT's refer to zero-width tokens like `^` and `$`. More on that later.
 
 ### Token
 A token to match *one* character (i.e. tokens allow the matching of a `char`).
-Tokens can be chained by concatening them without spaces in between to match a string of tokens specifically. Examples given below.
+Tokens can be chained by concatenating them without spaces in between to match a string of tokens specifically. Examples given below.
 To match a token that is a reserved character in regex, we can escape the character using backslash `\`. However, this is not uniform across all regex engines. Read the docs for your engine.
 Some common tokens are:
+
 - `.` - Matches any 1 character.
   ```
   Example: 1. matches 1A or 11

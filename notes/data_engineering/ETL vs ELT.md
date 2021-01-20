@@ -1,4 +1,5 @@
 ---
+
 title: ETL vs ELT
 created: '2021-01-06T16:02:31.551Z'
 modified: '2021-01-12T20:03:01.810Z'
@@ -19,4 +20,4 @@ In Summary:
 - ETL can help with data privacy and compliance, cleansing sensitive data before loading into the data destination, while ELT is simpler and for companies with minor data needs.
 
 
-NOTE: In ETL, there are additional implicit steps before Transforming the data. Those steps involve pulling the data from the warehouse into a separate machine for computing the transformation and another step to push back the data into the warehouse. This is required becuase the data storage is decoupled from the compute unit. However, in a cloud based data warehouse like Snowflake, these steps are not necessary since the transformation can take in place. Thus, it is called ELT.
+NOTE: In ETL, there are additional implicit steps before Transforming the data. Those steps involve pulling the data from the warehouse into a separate machine for computing the transformation and another step to push back the data into the warehouse. This is required because the data storage is decoupled from the compute unit. However, in a cloud based data warehouse like Snowflake, these steps are not necessary since the transformation can take in place. Thus, it is called ELT.
