@@ -1,10 +1,3 @@
----
-
-title: ETL vs ELT
-created: '2021-01-06T16:02:31.551Z'
-modified: '2021-01-12T20:03:01.810Z'
----
-
 # ETL vs ELT
 
 Described in detail [here](https://www.xplenty.com/blog/etl-vs-elt/#:~:text=The%20five%20critical%20differences%20of,warehouse%20to%20do%20basic%20transformations.).

@@ -48,7 +48,7 @@ Some common tokens are:
 - `[a-zA-z]` - Match 1 ASCII character in the range from A to Z and in the range from a to z
 
 ### Zero-width Token
-They are tokens that match without consuming any characters. I.e. they provide context and does not represent any physical character.
+They are tokens that match without consuming any characters i.e. they provide context and do not represent any physical character.
 
 Some common ZWTs are:
 - `^` start of line
@@ -77,7 +77,7 @@ Some common repeaters are:
   ```
   .+ matches all non-empty string in the universe
   [0-9]+ represents all non-empty numbers in the universe
-  [0-9]+-[0-9]+ represents all numbers in the format numbers-numbers
+  [0-9]+-[0-9]+ represents all strings in the format numbers-numbers
   ```
 
 
