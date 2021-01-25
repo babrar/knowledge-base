@@ -2,4 +2,4 @@
 
 This is where I store all my important knowledge documents.
 
-I am currently using Notable.app to view all my markdown documents.
+I am currently using Typora to view all my markdown documents.

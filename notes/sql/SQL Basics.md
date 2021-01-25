@@ -268,6 +268,25 @@ on c.customer_id = o.customer_id
 | James      | Madison    | NULL       | NULL         |
 | James      | Monroe     | NULL       | NULL         |
 
-### 'Using' Keyword
-
+### 'Using' keyword
 If two tables (i.e. orders and customers) are being joined using a column name  that is same across both the tables (i.e. customer_id), then instead of specifying the joining condition using the `join on order.customer_id = customer.customer_id` syntax, we can concisely write `join using customer_id`.
+
+## Things to watch out for
+### Column name collisions
+
+The following SQL doesn't behave as expected due a column name collision. 
+```sql
+orders_unknown_customer as (
+  select 
+    orders.id as order_id, -- PK
+    orders.customer, -- contains FK (customer_id)
+    customers.id as customer_id -- COLUMN NAME ALIAS DOES NOT TAKE EFFECT HERE
+  from orders left join customers
+  on (orders.customer_id = customers.id)
+  where customers_id is null -- customer_id inherited from orders, not the current table
+)
+select * from orders_unknown_customer;
+```
+
+`orders`already  has a column named `customer_id`. When we build a new table called `orders_unknown_customer` we are introducing a new column in the table called `customer_id`.
+
